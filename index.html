@@ -583,6 +583,83 @@
             border-radius: 2px;
         }
         
+        /* === Expertise Section === */
+        .expertise {
+            background: white;
+            position: relative;
+        }
+        
+        .expertise::before {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(255,255,255,0) 70%);
+            z-index: 0;
+        }
+        
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .expertise-category {
+            background: var(--light);
+            padding: 2.5rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+        }
+        
+        .expertise-category h3 {
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(59, 130, 246, 0.2);
+        }
+        
+        .expertise-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .expertise-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        .expertise-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .expertise-item h4 {
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .expertise-item h4 i {
+            margin-right: 0.75rem;
+            color: var(--secondary);
+        }
+        
+        .expertise-item p {
+            font-size: 0.95rem;
+            color: rgba(30, 41, 59, 0.8);
+            margin-bottom: 0;
+        }
+        
         /* === Contact Section === */
         .contact {
             background: white;
@@ -692,7 +769,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0yMCAzOC41NTdjMTAuMjE3IDAgMTguNS04LjI4MyAxOC41LTE4LjUgMC0xMC4yMTYtOC4yODMtMTguNS0xOC41LTE4LjUtMTAuMjE2IDAtMTguNSA4LjI4NC0xOC41IDE4LjUgMCAxMC4yMTcgOC4yODQgMTguNSAxOC41IDE4LjV6IiBzdHJva2U9IiMxRTIxMzMiIG9wYWNpdHk9Ii4yIi8+PHBhdGggZD0iTTUuNSA1LjVIMjkuNXYyOS4wSDV6IiBzdHJva2U9IiMxRTIxMzMiIG9wYWNpdHk9Ii4yIi8+PC9nPjwvc3ZnPg==');
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0yMCAzOC41NTdjMTAuMjE3IDAgMTguNS04LjI4MyAxOC41LTE4LjUgMC0xMC4yMTYtOC4yODMtMTguNS0xOC41LTE4LjUtMTAuMjE2IDAtMTguNSA8LjI4NC0xOC41IDE4LjUgMCAxMC4yMTcgOC4yODQgMTguNSAxOC41IDE4LjV6IiBzdHJva2U9IiMxRTIxMzMiIG9wYWNpdHk9Ii4yIi8+PHBhdGggZD0iTTUuNSA1LjVIMjkuNXYyOS4wSDV6IiBzdHJva2U9IiMxRTIxMzMiIG9wYWNpdHk9Ii4yIi8+PC9nPjwvc3ZnPg==');
             opacity: 0.1;
             z-index: 0;
         }
@@ -749,29 +826,6 @@
             color: rgba(255, 255, 255, 0.6);
             position: relative;
             z-index: 1;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            transition: var(--transition);
-        }
-        
-        .social-links a:hover {
-            background: var(--accent);
-            transform: translateY(-3px);
         }
         
         /* === Animations === */
@@ -917,6 +971,7 @@
                 <ul class="nav-links">
                     <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#expertise">Expertise</a></li>
                     <li><a href="#conditions">Conditions</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li class="nav-cta"><a href="#contact" class="btn btn-primary">Book Consultation</a></li>
@@ -1028,6 +1083,144 @@
                         <li>Personalized rehabilitation</li>
                         <li>Comprehensive education</li>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="expertise" class="expertise">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Expertise</h2>
+                <p class="section-subtitle">Specialized treatments for complex orthopaedic conditions</p>
+            </div>
+            
+            <div class="expertise-grid">
+                <div class="expertise-category fade-in">
+                    <h3>Shoulder</h3>
+                    <div class="expertise-list">
+                        <div class="expertise-item">
+                            <h4><i class="fas fa-bone"></i> Bony Bankart Shoulder Instability</h4>
+                            <p>Surgical repair of the bony defect in the glenoid caused by shoulder dislocation.</p>
+                        </div>
+                        <div class="expertise-item">
+                            <h4><i class="fas fa-bone"></i> Batter's Shoulder</h4>
+                            <p>Treatment for posterior labral tears common in baseball players from the batting motion.</p>
+                        </div>
+                        <div class="expertise-item">
+                            <h4><i class="fas fa-bone"></i> Latarget and Failed Shoulder Instability</h4>
+                            <p>Advanced procedures for complex or previously unsuccessful shoulder stabilization.</p>
+                        </div>
+                        <div class="expertise-item">
+                            <h4><i class="fas fa-bone"></i> Remplissage</h4>
+                            <p>Arthroscopic technique to address engaging Hill-Sachs lesions in shoulder instability.</p>
+                        </div>
+                        <div class="expertise-item">
+                            <h4><i class="fas fa-bone"></i> SLAP Repair</h4>
+                            <p>Superior labrum anterior-posterior tear repair for overhead athletes.</p>
+                        </div>
+                        <div class="expertise-item">
+                            <h4><i class="fas fa-bone"></i> Biceps Tenodesis</h4>
+                            <p>Surgical procedure to relieve pain from biceps tendon injuries.</p>
+                        </div>
+                        <div class="expertise-item">
+                            <h4><i class="fas fa-bone"></i> Shoulder Rotator Cuff Repair</h4>
+                            <p>Advanced techniques for repairing torn rotator cuff tendons.</p>
+                        </div>
+                        <div class="expertise-item">
+                            <h4><i class="fas fa-bone"></i> Clavicle Fracture</h4>
+                            <p>Surgical and non-surgical management of broken collarbones.</p>
+                        </div>
+                        <div class="expertise-item">
+                            <h4><i class="fas fa-bone"></i> AC Separation</h4>
+                            <p>Treatment for acromioclavicular joint injuries common in contact sports.</p>
+                        </div>
+                        <div class="expertise-item">
+                            <h4><i class="fas fa-bone"></i> Latissimus Dorsi Injuries</h4>
+                            <p>Management of injuries to this large back muscle that affects shoulder function.</p>
+                        </div>
+                        <div class="expertise-item">
+                            <h4><i class="fas fa-bone"></i> Shoulder Arthroplasty</h4>
+                            <p>Total or partial shoulder replacement for severe arthritis or fractures.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="expertise-category fade-in delay-1">
+                    <h3>Elbow</h3>
+                    <div class="expertise-list">
+                        <div class="expertise-item">
+                            <h4><i class="fas fa-hand-paper"></i> Tommy John Surgery</h4>
+                            <p>Ulnar collateral ligament reconstruction for throwing athletes.</p>
+                        </div>
+                        <div class="expertise-item">
+                            <h4><i class="fas fa-hand-paper"></i> Snapping Ulnar Nerve</h4>
+                            <p>Treatment for ulnar nerve subluxation causing painful snapping sensation.</p>
+                        </div>
+                        <div class="expertise-item">
+                            <h4><i class="fas fa-hand-paper"></i> Medial Epicondyle Avulsion Fractures</h4>
+                            <p>Management of this common youth baseball injury.</p>
+                        </div>
+                        <div class="expertise-item">
+                            <h4><i class="fas fa-hand-paper"></i> Elbow Arthroscopy in the Throwing Athlete</h4>
+                            <p>Minimally invasive procedures for baseball players and other throwing athletes.</p>
+                        </div>
+                        <div class="expertise-item">
+                            <h4><i class="fas fa-hand-paper"></i> Capitellar OCD</h4>
+                            <p>Treatment for osteochondritis dissecans of the capitellum.</p>
+                        </div>
+                        <div class="expertise-item">
+                            <h4><i class="fas fa-hand-paper"></i> Olecranon Stress Fractures in Baseball</h4>
+                            <p>Management of this overuse injury in pitchers.</p>
+                        </div>
+                        <div class="expertise-item">
+                            <h4><i class="fas fa-hand-paper"></i> Little Leaguer's Elbow</h4>
+                            <p>Comprehensive treatment for medial epicondyle apophysitis in young athletes.</p>
+                        </div>
+                        <div class="expertise-item">
+                            <h4><i class="fas fa-hand-paper"></i> Tennis Elbow Treatment</h4>
+                            <p>Advanced surgical and non-surgical options for lateral epicondylitis.</p>
+                        </div>
+                        <div class="expertise-item">
+                            <h4><i class="fas fa-hand-paper"></i> Distal Biceps Repair</h4>
+                            <p>Surgical reattachment of the distal biceps tendon.</p>
+                        </div>
+                        <div class="expertise-item">
+                            <h4><i class="fas fa-hand-paper"></i> Medial Epicondylitis (Golfer's Elbow)</h4>
+                            <p>Treatment for medial elbow tendon pain.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="expertise-category fade-in delay-2">
+                    <h3>Knee</h3>
+                    <div class="expertise-list">
+                        <div class="expertise-item">
+                            <h4><i class="fas fa-running"></i> ACL Injuries</h4>
+                            <p>Comprehensive management of anterior cruciate ligament tears.</p>
+                        </div>
+                        <div class="expertise-item">
+                            <h4><i class="fas fa-running"></i> ACL Primary</h4>
+                            <p>State-of-the-art ACL reconstruction techniques.</p>
+                        </div>
+                        <div class="expertise-item">
+                            <h4><i class="fas fa-running"></i> Patellar Instability Surgery</h4>
+                            <p>Procedures to stabilize recurrent patellar dislocations.</p>
+                        </div>
+                        <div class="expertise-item">
+                            <h4><i class="fas fa-running"></i> Meniscus Repair</h4>
+                            <p>Preservation techniques for torn meniscus cartilage.</p>
+                        </div>
+                        <div class="expertise-item">
+                            <h4><i class="fas fa-running"></i> Meniscal Root Repair</h4>
+                            <p>Specialized repair for this critical meniscus attachment.</p>
+                        </div>
+                        <div class="expertise-item">
+                            <h4><i class="fas fa-running"></i> Cartilage Repair</h4>
+                            <p>Advanced techniques for articular cartilage restoration.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1150,12 +1343,6 @@
                 <div class="footer-col">
                     <h4>Dr. Adam A. Al-Baba</h4>
                     <p>Providing exceptional orthopaedic care with precision and compassion.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
                 </div>
                 
                 <div class="footer-col">
@@ -1163,6 +1350,7 @@
                     <ul class="footer-links">
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About</a></li>
+                        <li><a href="#expertise">Expertise</a></li>
                         <li><a href="#conditions">Conditions</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
@@ -1171,10 +1359,10 @@
                 <div class="footer-col">
                     <h4>Specialties</h4>
                     <ul class="footer-links">
-                        <li><a href="#">Sports Medicine</a></li>
-                        <li><a href="#">Foot & Ankle</a></li>
-                        <li><a href="#">Orthopaedic Trauma</a></li>
-                        <li><a href="#">Joint Preservation</a></li>
+                        <li><a href="#expertise">Shoulder</a></li>
+                        <li><a href="#expertise">Elbow</a></li>
+                        <li><a href="#expertise">Knee</a></li>
+                        <li><a href="#conditions">Foot & Ankle</a></li>
                     </ul>
                 </div>
                 
@@ -1183,7 +1371,6 @@
                     <ul class="footer-links">
                         <li><a href="mailto:adamalbabamd@gmail.com">adamalbabamd@gmail.com</a></li>
                         <li><a href="tel:+12013209777">(201) 320-9777</a></li>
-                        <li><a href="#contact">Book Appointment</a></li>
                     </ul>
                 </div>
             </div>
