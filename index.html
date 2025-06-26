@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Adam A. Al-Baba, MD | Orthopaedic Surgeon</title>
+    <style>
+        /* === Ultra-Premium Design System === */
+        :root {
+            --primary: #0A2463; /* Deep Navy */
+            --secondary: #3E92CC; /* Vibrant Blue */
+            --accent: #5FBFF9; /* Light Sky Blue */
+            --text: #1E1E24; /* Dark Charcoal */
+            --light: #FFF9FB; /* Warm White */
+            --gray: #EBEBEB; /* Light Gray */
+            --success: #2EC4B6; /* Teal */
+            
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
+            --shadow-lg: 0 15px 40px rgba(0,0,0,0.15);
+            
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        }
+        
+        @font-face {
+            font-family: 'Euclid Circular';
+            src: url('https://fonts.cdnfonts.com/css/euclid-circular-a') format('woff2');
+            font-display: swap;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Euclid Circular', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--light);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        
+        ::selection {
+            background: var(--accent);
+            color: white;
+        }
+        
+        /* === Typography === */
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        
+        h1 { font-size: 3.5rem; letter-spacing: -0.03em; }
+        h2 { font-size: 2.5rem; letter-spacing: -0.02em; }
+        h3 { font-size: 1.8rem; }
+        h4 { font-size: 1.3rem; }
+        
+        p {
+            font-size: 1.1rem;
+            color: rgba(30, 30, 36, 0.8);
+            margin-bottom: 1.8rem;
+            line-height: 1.8;
+        }
+        
+        a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        /* === Layout === */
+        .container {
+            width: 92%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        section {
+            padding: 8rem 0;
+            position: relative;
+        }
+        
+        /* === Buttons === */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.1rem 2.4rem;
+            border-radius: 100px;
+            font-weight: 500;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary {
+            background: var(--secondary);
+            color: white;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            background: var(--primary);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--secondary);
+            border: 2px solid var(--secondary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        /* === Header === */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 0;
+            transition: var(--transition);
+            backdrop-filter: blur(12px);
+            background: rgba(255, 249, 251, 0.86);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        header.scrolled {
+            padding: 1rem 0;
+            box-shadow: var(--shadow-sm);
+            background: rgba(255, 255, 255, 0.98);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+        
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-links a.active {
+            color: var(--secondary);
+        }
+        
+        .nav-cta {
+            margin-left: 3rem;
+        }
+        
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        /* === Hero Section === */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(62,146,204,0.08) 0%, rgba(255,255,255,0) 70%);
+            z-index: -1;
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .hero-text {
+            position: relative;
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--secondary);
+            margin-bottom: 2.5rem;
+        }
+        
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .doctor-photo {
+            width: 100%;
+            max-width: 500px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            transform: perspective(1000px) rotateY(-10deg);
+            transition: var(--transition);
+            border: 12px solid white;
+        }
+        
+        .doctor-photo:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+        
+        .contact-info {
+            margin: 2.5rem 0;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+        
+        /* === About Section === */
+        .about {
+            background: white;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            max-width: 700px;
+            margin: 1.5rem auto 0;
+            color: rgba(30, 30, 36, 0.7);
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .about-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            color: white;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        
+        /* === Conditions Section === */
+        .conditions {
+            background: var(--light);
+        }
+        
+        .conditions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .condition-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        
+        .condition-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(to bottom, var(--secondary), var(--accent));
+            transition: var(--transition);
+        }
+        
+        .condition-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .condition-card:hover::before {
+            height: 100%;
+        }
+        
+        .condition-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        .condition-list {
+            list-style: none;
+        }
+        
+        .condition-list li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.8rem;
+        }
+        
+        .condition-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        /* === Contact Section === */
+        .contact {
+            background: white;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        
+        .contact-info-box {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 3rem;
+            border-radius: var(--radius-md);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .contact-info-box h3 {
+            color: white;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .contact-info-box h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: white;
+        }
+        
+        .contact-item-box {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-icon-box {
+            margin-right: 1.5rem;
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+            color: var(--text);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 1.1rem;
+            border: 1px solid var(--gray);
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            transition: var(--transition);
+            background: rgba(245, 245, 245, 0.4);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(62, 146, 204, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* === Footer === */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 5rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--accent);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* === Animations === */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        
+        /* === Responsive === */
+        @media (max-width: 1200px) {
+            h1 { font-size: 3rem; }
+            .hero-title { font-size: 3.2rem; }
+        }
+        
+        @media (max-width: 992px) {
+            .hero-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-text {
+                order: 2;
+                text-align: center;
+            }
+            
+            .hero-image {
+                order: 1;
+                margin-bottom: 3rem;
+            }
+            
+            .doctor-photo {
+                max-width: 400px;
+            }
+            
+            .contact-info {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                transition: var(--transition);
+                box-shadow: -5px 0 30px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .nav-cta {
+                margin-left: 0;
+                margin-top: 2rem;
+            }
+            
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            
+            .hero-title { font-size: 2.5rem; }
+            .hero-subtitle { font-size: 1.2rem; }
+            
+            section {
+                padding: 5rem 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .btn {
+                padding: 0.9rem 1.8rem;
+                font-size: 1rem;
+            }
+            
+            .about-card,
+            .condition-card,
+            .contact-form,
+            .contact-info-box {
+                padding: 2rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Dr. <span>Al-Baba</span></a>
+                
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#conditions">Conditions</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li class="nav-cta"><a href="#contact" class="btn btn-primary">Book Consultation</a></li>
+                </ul>
+                
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text fade-in">
+                    <h1 class="hero-title">Precision Orthopaedic Care for Active Lives</h1>
+                    <h2 class="hero-subtitle">Sports Medicine • Foot & Ankle • Trauma</h2>
+                    <p>Dr. Adam A. Al-Baba provides world-class orthopaedic surgical care with personalized treatment plans tailored to each patient's unique needs and goals.</p>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item fade-in delay-1">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>adamalbabamd@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item fade-in delay-2">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>(201) 320-9777</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fade-in delay-3">
+                        <a href="#contact" class="btn btn-primary">Schedule Appointment</a>
+                    </div>
+                </div>
+                
+                <div class="hero-image fade-in">
+                    <a href="photo.png">
+                        <img src="photo.png" alt="Dr. Adam A. Al-Baba" class="doctor-photo">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Dr. Al-Baba</h2>
+                <p class="section-subtitle">Board-certified orthopaedic surgeon with advanced fellowship training in sports medicine and trauma care</p>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-card fade-in">
+                    <div class="card-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Education</h3>
+                    <ul class="condition-list">
+                        <li>M.D., Beirut Arab University Faculty of Medicine (2003)</li>
+                        <li>Orthopaedic Surgery Residency, Rafik Hariri University Hospital</li>
+                    </ul>
+                </div>
+                
+                <div class="about-card fade-in delay-1">
+                    <div class="card-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Fellowships</h3>
+                    <ul class="condition-list">
+                        <li>Orthopaedic Trauma – University of Louisville</li>
+                        <li>Foot & Ankle Surgery – Harborview Medical Center</li>
+                        <li>Sports Medicine – Andrews Institute, Florida</li>
+                    </ul>
+                </div>
+                
+                <div class="about-card fade-in delay-2">
+                    <div class="card-icon">
+                        <i class="fas fa-briefcase-medical"></i>
+                    </div>
+                    <h3>Experience</h3>
+                    <ul class="condition-list">
+                        <li>Medical Director, MHC Healthcare</li>
+                        <li>Orthopaedic Surgeon, MedStar Georgetown University Hospital</li>
+                    </ul>
+                </div>
+                
+                <div class="about-card fade-in delay-3">
+                    <div class="card-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Philosophy</h3>
+                    <ul class="condition-list">
+                        <li>Minimally invasive techniques</li>
+                        <li>Evidence-based protocols</li>
+                        <li>Personalized rehabilitation</li>
+                        <li>Comprehensive education</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conditions Section -->
+    <section id="conditions" class="conditions">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Conditions Treated</h2>
+                <p class="section-subtitle">Specialized care for a wide range of orthopaedic conditions</p>
+            </div>
+            
+            <div class="conditions-grid">
+                <div class="condition-card fade-in">
+                    <div class="condition-icon">
+                        <i class="fas fa-bone"></i>
+                    </div>
+                    <h3>Shoulder</h3>
+                    <ul class="condition-list">
+                        <li>Rotator Cuff Injuries</li>
+                        <li>Shoulder Dislocation</li>
+                        <li>Labral Tears</li>
+                        <li>AC Joint Separation</li>
+                    </ul>
+                </div>
+                
+                <div class="condition-card fade-in delay-1">
+                    <div class="condition-icon">
+                        <i class="fas fa-hand-paper"></i>
+                    </div>
+                    <h3>Elbow</h3>
+                    <ul class="condition-list">
+                        <li>Tennis Elbow</li>
+                        <li>UCL Injuries</li>
+                        <li>Biceps Tendon Repair</li>
+                    </ul>
+                </div>
+                
+                <div class="condition-card fade-in delay-2">
+                    <div class="condition-icon">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <h3>Knee</h3>
+                    <ul class="condition-list">
+                        <li>ACL Reconstruction</li>
+                        <li>Meniscus Repair</li>
+                        <li>Patellar Instability</li>
+                        <li>Cartilage Restoration</li>
+                    </ul>
+                </div>
+                
+                <div class="condition-card fade-in delay-3">
+                    <div class="condition-icon">
+                        <i class="fas fa-shoe-prints"></i>
+                    </div>
+                    <h3>Foot & Ankle</h3>
+                    <ul class="condition-list">
+                        <li>Achilles Tendon Injuries</li>
+                        <li>Ankle Instability</li>
+                        <li>Bunion Correction</li>
+                        <li>Plantar Fasciitis</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contact Us</h2>
+                <p class="section-subtitle">Schedule your consultation today</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info-box fade-in">
+                    <h3>Contact Information</h3>
+                    
+                    <div class="contact-item-box">
+                        <div class="contact-icon-box">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>adamalbabamd@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item-box">
+                        <div class="contact-icon-box">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>(201) 320-9777</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item-box">
+                        <div class="contact-icon-box">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4>Office Hours</h4>
+                            <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+                            <p>Saturday: By appointment only</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form fade-in delay-1">
+                    <h3>Send a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>Dr. Adam A. Al-Baba</h4>
+                    <p>Providing exceptional orthopaedic care with precision and compassion.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#conditions">Conditions</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Specialties</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Sports Medicine</a></li>
+                        <li><a href="#">Foot & Ankle</a></li>
+                        <li><a href="#">Orthopaedic Trauma</a></li>
+                        <li><a href="#">Joint Preservation</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:adamalbabamd@gmail.com">adamalbabamd@gmail.com</a></li>
+                        <li><a href="tel:+12013209777">(201) 320-9777</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Dr. Adam A. Al-Baba, MD. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenu.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Update active nav link
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real implementation, you would send the form data to a server
+            // For this example, we'll simulate a successful submission
+            alert('Thank you for your message. We will contact you shortly.');
+            this.reset();
+            
+            // You would typically use something like this for actual form submission:
+            // fetch('your-server-endpoint', {
+            // method: 'POST',
+            // body: new FormData(this)
+            // })
+            // .then(response => response.json())
+            // .then(data => {
+            // alert('Message sent successfully!');
+            // this.reset();
+            // })
+            // .catch(error => {
+            // alert('There was an error sending your message. Please try again.');
+            // });
+        });
+        
+        // Intersection Observer for animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        fadeElements.forEach(element => {
+            element.style.opacity = 0;
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
