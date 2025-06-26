@@ -674,7 +674,7 @@
 </head>
 <body>
     <!-- Header -->
-    <header id="header" class="scrolled">
+    <header id="header" class="">
         <div class="container">
             <nav>
                 <a href="#" class="logo">Dr. <span>Adam A. AlBaba</span></a>
@@ -1011,19 +1011,6 @@
             alert('Thank you for your message. We will contact you shortly.');
             this.reset();
             
-            // You would typically use something like this for actual form submission:
-            // fetch('your-server-endpoint', {
-            // method: 'POST',
-            // body: new FormData(this)
-            // })
-            // .then(response => response.json())
-            // .then(data => {
-            // alert('Message sent successfully!');
-            // this.reset();
-            // })
-            // .catch(error => {
-            // alert('There was an error sending your message. Please try again.');
-            // });
         });
         
         // Intersection Observer for animations
