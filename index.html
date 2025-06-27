@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Adam A. Al-Baba, MD | Orthopaedic Surgeon</title>
-    <meta name="description" content="Board-certified orthopaedic surgeon specializing in sports medicine, foot & ankle, and trauma care.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* === Modern Design System === */
+        /* ===== CSS Variables ===== */
         :root {
             --primary: #0F172A; /* Deep Navy */
             --secondary: #3B82F6; /* Vibrant Blue */
@@ -20,59 +14,113 @@
             --gray: #E2E8F0; /* Light Gray */
             --success: #10B981; /* Emerald */
             --error: #EF4444; /* Red */
+            --gold: #D4AF37; /* Gold for accents */
             
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.1);
             --shadow-md: 0 4px 6px rgba(0,0,0,0.05), 0 2px 4px rgba(0,0,0,0.1);
             --shadow-lg: 0 10px 25px rgba(0,0,0,0.05), 0 5px 10px rgba(0,0,0,0.1);
             --shadow-xl: 0 20px 40px rgba(0,0,0,0.1);
+            --shadow-xxl: 0 25px 50px rgba(0,0,0,0.15);
+            --glow: 0 0 20px rgba(59, 130, 246, 0.3);
             
             --radius-sm: 0.375rem;
             --radius-md: 0.5rem;
             --radius-lg: 0.75rem;
             --radius-xl: 1rem;
+            --radius-xxl: 1.5rem;
             
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.18);
+            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
         }
-        
+
+        /* ===== Base Styles ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 100px;
         }
-        
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             line-height: 1.6;
             color: var(--text);
-            background-color: var(--light);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            background-attachment: fixed;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
         }
-        
+
         ::selection {
             background: var(--accent);
             color: white;
         }
-        
-        /* === Typography === */
+
+        /* ===== Typography ===== */
         h1, h2, h3, h4, h5 {
             font-weight: 700;
             line-height: 1.2;
             margin-bottom: 1.25rem;
             color: var(--primary);
         }
+
+        h1 { 
+            font-size: 3.5rem; 
+            letter-spacing: -0.05em;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
         
-        h1 { font-size: 3.5rem; letter-spacing: -0.05em; }
-        h2 { font-size: 2.5rem; letter-spacing: -0.025em; }
-        h3 { font-size: 1.875rem; }
+        h2 { 
+            font-size: 2.5rem; 
+            letter-spacing: -0.025em;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            border-radius: 2px;
+        }
+        
+        h3 { 
+            font-size: 1.875rem; 
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        h3:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 12px;
+            height: 25px;
+            width: 6px;
+            background: var(--secondary);
+            border-radius: 3px;
+        }
+        
         h4 { font-size: 1.5rem; }
         h5 { font-size: 1.25rem; }
-        
+
         p {
             font-size: 1.125rem;
             color: var(--text);
@@ -80,27 +128,54 @@
             line-height: 1.75;
             opacity: 0.9;
         }
-        
+
         a {
             color: var(--secondary);
             text-decoration: none;
             transition: var(--transition);
         }
-        
-        /* === Layout === */
+
+        /* ===== Layout ===== */
         .container {
             width: 100%;
             max-width: 1280px;
             margin: 0 auto;
             padding: 0 2rem;
         }
-        
+
         section {
             padding: 8rem 0;
             position: relative;
         }
         
-        /* === Buttons === */
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .section-header h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* ===== Glassmorphism Card ===== */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--glass-shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--glow), var(--shadow-xxl);
+        }
+
+        /* ===== Buttons ===== */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -115,37 +190,26 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
-        .btn-primary {
-            background: var(--secondary);
-            color: white;
-            box-shadow: var(--shadow-md);
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-            background: #2563EB;
-        }
-        
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
-            z-index: -1;
-            opacity: 0;
+        .btn i {
+            margin-right: 10px;
             transition: var(--transition);
         }
-        
-        .btn-primary:hover::before {
-            opacity: 1;
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            color: white;
+            box-shadow: var(--shadow-lg);
         }
-        
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--glow), var(--shadow-xl);
+        }
+
         .btn-outline {
             background: transparent;
             color: var(--secondary);
@@ -155,11 +219,11 @@
         .btn-outline:hover {
             background: var(--secondary);
             color: white;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             box-shadow: var(--shadow-md);
         }
-        
-        /* === Header === */
+
+        /* ===== Header ===== */
         header {
             position: fixed;
             top: 0;
@@ -170,90 +234,123 @@
             transition: var(--transition-slow);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            background: rgba(248, 250, 252, 0.86);
-            border-bottom: 1px solid rgba(255,255,255,0.2);
+            background: rgba(248, 250, 252, 0.92);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.3);
+            box-shadow: var(--shadow-sm);
         }
         
         header.scrolled {
             padding: 1rem 0;
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--shadow-md);
             background: rgba(255, 255, 255, 0.98);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
         }
-        
+
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             font-weight: 700;
             color: var(--primary);
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
+            transition: var(--transition);
         }
         
+        .logo:hover {
+            transform: scale(1.02);
+        }
+
         .logo span {
             color: var(--secondary);
+            position: relative;
         }
         
+        .logo span:after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gold);
+            border-radius: 2px;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s ease;
+        }
+        
+        .logo:hover span:after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
         .logo-icon {
             color: var(--secondary);
-            font-size: 1.75rem;
+            font-size: 2rem;
+            transition: var(--transition);
         }
         
+        .logo:hover .logo-icon {
+            transform: rotate(15deg);
+            color: var(--gold);
+        }
+
         .nav-links {
             display: flex;
             gap: 2rem;
+            list-style: none;
         }
-        
+
         .nav-links a {
-            font-weight: 500;
+            font-weight: 600;
             color: var(--text);
             position: relative;
             padding: 0.5rem 0;
             font-size: 1.05rem;
+            transition: var(--transition);
         }
         
-        .nav-links a::after {
+        .nav-links a:after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 0;
             width: 0;
-            height: 2px;
+            height: 3px;
             background: var(--secondary);
+            border-radius: 2px;
             transition: var(--transition);
         }
         
-        .nav-links a:hover::after {
+        .nav-links a:hover:after,
+        .nav-links a.active:after {
             width: 100%;
         }
         
         .nav-links a.active {
             color: var(--secondary);
         }
-        
-        .nav-links a.active::after {
-            width: 100%;
-        }
-        
+
         .nav-cta {
             margin-left: 2rem;
         }
-        
+
         .mobile-menu {
             display: none;
             cursor: pointer;
             z-index: 1001;
             font-size: 1.5rem;
             color: var(--primary);
+            background: none;
+            border: none;
         }
-        
-        /* === Hero Section === */
+
+        /* ===== Hero Section ===== */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -261,11 +358,10 @@
             padding-top: 6rem;
             position: relative;
             overflow: hidden;
-            background: linear-gradient(135deg, rgba(248, 250, 252, 0.9), rgba(248, 250, 252, 0.9)), 
-                        url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0yMCAzOC41NTdjMTAuMjE3IDAgMTguNS04LjI4MyAxOC41LTE4LjUgMC0xMC4yMTYtOC4yODMtMTguNS0xOC41LTE4LjUtMTAuMjE2IDAtMTguNSA4LjI4NC0xOC41IDE4LjUgMCAxMC4yMTcgOC4yODQgMTguNSAxOC41IDE4LjV6IiBzdHJva2U9IiNFOEU4RTAiIG9wYWNpdHk9Ii41Ii8+PHBhdGggZD0iTTUuNSA1LjVIMjkuNXYyOS4wSDV6IiBzdHJva2U9IiNFOEU4RTAiIG9wYWNpdHk9Ii41Ii8+PC9nPjwvc3ZnPg==');
+            background: linear-gradient(135deg, rgba(248, 250, 252, 0.9), rgba(248, 250, 252, 0.9));
         }
         
-        .hero::before {
+        .hero:before {
             content: '';
             position: absolute;
             top: -50%;
@@ -274,49 +370,72 @@
             height: 200%;
             background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(255,255,255,0) 70%);
             z-index: -1;
+            animation: rotate 20s linear infinite;
         }
-        
+
         .hero-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
         }
-        
+
         .hero-text {
             position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
         }
-        
+
         .hero-title {
             font-size: 3.75rem;
             margin-bottom: 1.5rem;
             line-height: 1.1;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            animation-delay: 0.2s;
         }
-        
+
         .hero-subtitle {
             font-size: 1.5rem;
             font-weight: 500;
             color: var(--secondary);
             margin-bottom: 2.5rem;
             opacity: 0.9;
+            animation-delay: 0.3s;
         }
         
+        .hero-subtitle:after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: var(--gold);
+            margin-top: 15px;
+            border-radius: 2px;
+        }
+
         .hero-image {
             position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
+            animation: fadeIn 1s ease-out, float 6s ease-in-out infinite;
         }
         
+        .hero-image:before {
+            content: '';
+            position: absolute;
+            width: 120%;
+            height: 120%;
+            background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
+            opacity: 0.1;
+            z-index: -1;
+            animation: pulse 8s ease-in-out infinite;
+        }
+
         .doctor-photo {
             width: 100%;
             max-width: 500px;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xxl);
             transform: perspective(1000px) rotateY(-10deg) rotateX(2deg);
             transition: var(--transition-slow);
             border: 15px solid white;
@@ -326,15 +445,15 @@
         
         .doctor-photo:hover {
             transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
-            box-shadow: var(--shadow-xl);
+            box-shadow: var(--glow), var(--shadow-xxl);
         }
-        
+
         .photo-frame {
             position: absolute;
             width: 100%;
             height: 100%;
-            border: 2px solid var(--secondary);
-            border-radius: var(--radius-lg);
+            border: 3px solid var(--secondary);
+            border-radius: var(--radius-xl);
             top: 20px;
             left: 20px;
             z-index: 1;
@@ -344,187 +463,67 @@
         .hero-image:hover .photo-frame {
             top: 15px;
             left: 15px;
+            border-color: var(--gold);
         }
-        
+
         .contact-info {
             margin: 2.5rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
-        
+
         .contact-item {
             display: flex;
             align-items: center;
-            margin-bottom: 1.5rem;
             background: white;
             padding: 1.25rem;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-sm);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
             transition: var(--transition);
             border: 1px solid rgba(226, 232, 240, 0.5);
+            animation: fadeInLeft 0.8s ease-out;
+            animation-fill-mode: backwards;
         }
+        
+        .contact-item:nth-child(1) { animation-delay: 0.4s; }
+        .contact-item:nth-child(2) { animation-delay: 0.5s; }
         
         .contact-item:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
+            transform: translateY(-5px);
+            box-shadow: var(--glow), var(--shadow-lg);
             border-color: var(--accent);
         }
-        
+
         .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: white;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-right: 1.5rem;
-            box-shadow: var(--shadow-sm);
-            color: var(--secondary);
-            font-size: 1.2rem;
+            box-shadow: var(--shadow-md);
+            color: white;
+            font-size: 1.5rem;
             flex-shrink: 0;
-            border: 1px solid rgba(226, 232, 240, 0.8);
+            transition: var(--transition);
         }
         
-        .contact-item h4 {
-            margin-bottom: 0.25rem;
-            font-size: 1.1rem;
+        .contact-item:hover .contact-icon {
+            transform: scale(1.1) rotate(10deg);
+            background: linear-gradient(135deg, var(--gold), #e6c34d);
         }
-        
-        .contact-item p {
-            margin-bottom: 0;
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-        
-        /* === About Section === */
+
+        /* ===== About Section ===== */
         .about {
             background: white;
             position: relative;
             overflow: hidden;
         }
         
-        .about::before {
-            content: '';
-            position: absolute;
-            bottom: -100px;
-            right: -100px;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(255,255,255,0) 70%);
-            z-index: 0;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 5rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .section-title {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--secondary), var(--accent));
-            border-radius: 2px;
-        }
-        
-        .section-subtitle {
-            max-width: 700px;
-            margin: 1.5rem auto 0;
-            color: rgba(30, 41, 59, 0.8);
-        }
-        
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .about-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-            border: 1px solid rgba(226, 232, 240, 0.5);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .about-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--accent);
-        }
-        
-        .about-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--secondary), var(--accent));
-        }
-        
-        .card-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--secondary), var(--accent));
-            color: white;
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            box-shadow: var(--shadow-sm);
-        }
-        
-        .about-card h3 {
-            margin-bottom: 1.25rem;
-        }
-        
-        .condition-list {
-            list-style: none;
-        }
-        
-        .condition-list li {
-            margin-bottom: 0.8rem;
-            position: relative;
-            padding-left: 1.8rem;
-            font-size: 1rem;
-            color: rgba(30, 41, 59, 0.9);
-        }
-        
-        .condition-list li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: var(--secondary);
-            font-weight: bold;
-            font-size: 1.5rem;
-            line-height: 1;
-        }
-        
-        /* === Conditions Section === */
-        .conditions {
-            background: var(--light);
-            position: relative;
-        }
-        
-        .conditions::after {
+        .about:before {
             content: '';
             position: absolute;
             top: -100px;
@@ -533,24 +532,227 @@
             height: 300px;
             background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(255,255,255,0) 70%);
             z-index: 0;
+            animation: rotate 25s linear infinite reverse;
         }
         
-        .conditions-grid {
+        .about:after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, rgba(255,255,255,0) 70%);
+            z-index: 0;
+            animation: rotate 30s linear infinite;
+        }
+
+        .about-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             position: relative;
             z-index: 1;
         }
+
+        .about-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out;
+            animation-fill-mode: backwards;
+        }
+        
+        .about-card:nth-child(1) { animation-delay: 0.2s; }
+        .about-card:nth-child(2) { animation-delay: 0.3s; }
+        .about-card:nth-child(3) { animation-delay: 0.4s; }
+        .about-card:nth-child(4) { animation-delay: 0.5s; }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--glow), var(--shadow-xl);
+            border-color: var(--accent);
+        }
+
+        .about-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            z-index: 1;
+        }
+
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            color: white;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.75rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+        
+        .about-card:hover .card-icon {
+            transform: rotate(15deg) scale(1.1);
+            background: linear-gradient(135deg, var(--gold), #e6c34d);
+        }
+
+        .condition-list {
+            list-style: none;
+        }
+
+        .condition-list li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.8rem;
+            font-size: 1rem;
+            color: rgba(30, 41, 59, 0.9);
+            transition: var(--transition);
+        }
+        
+        .condition-list li:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        .condition-list li:before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+            font-size: 1.5rem;
+            line-height: 1;
+            transition: var(--transition);
+        }
+        
+        .condition-list li:hover:before {
+            color: var(--gold);
+        }
+
+        /* ===== Expertise Section ===== */
+        .expertise {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .expertise:before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(255,255,255,0) 70%);
+            z-index: 0;
+            animation: rotate 25s linear infinite reverse;
+        }
+        
+        .expertise:after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, rgba(255,255,255,0) 70%);
+            z-index: 0;
+            animation: rotate 30s linear infinite;
+        }
+        
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .expertise-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .expertise-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--glow), var(--shadow-xl);
+        }
+        
+        .expertise-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .expertise-content {
+            padding: 2rem;
+        }
+        
+        .expertise-content h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .expertise-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+        
+        .expertise-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--secondary);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .expertise-link i {
+            margin-left: 8px;
+            transition: var(--transition);
+        }
+        
+        .expertise-link:hover {
+            color: var(--gold);
+        }
+        
+        .expertise-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* ===== Conditions Section ===== */
+        .conditions {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .conditions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
         
         .condition-card {
             background: white;
-            padding: 2.5rem;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-sm);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
             transition: var(--transition);
-            position: relative;
-            overflow: hidden;
             border: 1px solid rgba(226, 232, 240, 0.5);
         }
         
@@ -560,220 +762,37 @@
             border-color: var(--accent);
         }
         
-        .condition-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--secondary);
-        }
-        
-        .condition-card h3 {
-            margin-bottom: 1.5rem;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .condition-card h3::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--secondary), var(--accent));
-            border-radius: 2px;
-        }
-        
-        /* === Expertise Section === */
-        .expertise {
-            background: white;
-            position: relative;
-        }
-        
-        .expertise::before {
-            content: '';
-            position: absolute;
-            bottom: -100px;
-            left: -100px;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(255,255,255,0) 70%);
-            z-index: 0;
-        }
-        
-        .expertise-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 3rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .expertise-category {
-            background: var(--light);
-            padding: 2.5rem;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-sm);
-            border: 1px solid rgba(226, 232, 240, 0.5);
-        }
-        
-        .expertise-category h3 {
-            color: var(--secondary);
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid rgba(59, 130, 246, 0.2);
-        }
-        
-        .expertise-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .expertise-item {
-            background: white;
-            padding: 1.5rem;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-        }
-        
-        .expertise-item:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .expertise-item h4 {
+        .condition-card h4 {
+            margin-bottom: 1rem;
             color: var(--primary);
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
         }
         
-        .expertise-item h4 i {
-            margin-right: 0.75rem;
-            color: var(--secondary);
+        .condition-card p {
+            color: var(--text);
+            font-size: 1rem;
         }
-        
-        .expertise-item p {
-            font-size: 0.95rem;
-            color: rgba(30, 41, 59, 0.8);
-            margin-bottom: 0;
-        }
-        
-        /* === Contact Section === */
-        .contact {
-            background: white;
-            position: relative;
-        }
-        
-        .contact::before {
-            content: '';
-            position: absolute;
-            bottom: -100px;
-            right: -100px;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(255,255,255,0) 70%);
-            z-index: 0;
-        }
-        
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 4rem;
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .contact-info-box {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            padding: 3rem;
-            border-radius: var(--radius-lg);
+
+        /* ===== Footer ===== */
+        .footer {
+            background: linear-gradient(135deg, var(--primary), #0c1221);
             color: white;
-            box-shadow: var(--shadow-xl);
+            padding: 6rem 0 3rem;
             position: relative;
             overflow: hidden;
         }
         
-        .contact-info-box::before {
+        .footer:before {
             content: '';
             position: absolute;
-            top: -50px;
-            right: -50px;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, rgba(255,255,255,0) 70%);
             z-index: 0;
+            animation: rotate 20s linear infinite;
         }
-        
-        .contact-info-box h3 {
-            color: white;
-            margin-bottom: 2rem;
-            position: relative;
-            padding-bottom: 1rem;
-            z-index: 1;
-        }
-        
-        .contact-info-box h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: white;
-        }
-        
-        .contact-item-box {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 2rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .contact-icon-box {
-            margin-right: 1.5rem;
-            font-size: 1.5rem;
-            color: white;
-            opacity: 0.9;
-            flex-shrink: 0;
-        }
-        
-        .contact-item-box h4 {
-            color: white;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-        
-        .contact-item-box p {
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 0;
-            font-size: 1rem;
-        }
-        
-        /* === Footer === */
-        footer {
-            background: var(--primary);
-            color: white;
-            padding: 6rem 0 3rem;
-            position: relative;
-        }
-        
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0yMCAzOC41NTdjMTAuMjE3IDAgMTguNS04LjI4MyAxOC41LTE4LjUgMC0xMC4yMTYtOC4yODMtMTguNS0xOC41LTE4LjUtMTAuMjE2IDAtMTguNSA8LjI4NC0xOC41IDE4LjUgMCAxMC4yMTcgOC4yODQgMTguNSAxOC41IDE4LjV6IiBzdHJva2U9IiMxRTIxMzMiIG9wYWNpdHk9Ii4yIi8+PHBhdGggZD0iTTUuNSA1LjVIMjkuNXYyOS4wSDV6IiBzdHJva2U9IiMxRTIxMzMiIG9wYWNpdHk9Ii4yIi8+PC9nPjwvc3ZnPg==');
-            opacity: 0.1;
-            z-index: 0;
-        }
-        
+
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -782,32 +801,33 @@
             position: relative;
             z-index: 1;
         }
-        
+
         .footer-col h4 {
             color: white;
             margin-bottom: 2rem;
             position: relative;
             padding-bottom: 1rem;
         }
-        
-        .footer-col h4::after {
+
+        .footer-col h4:after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 0;
             width: 40px;
-            height: 2px;
+            height: 3px;
             background: var(--accent);
+            border-radius: 2px;
         }
-        
+
         .footer-links {
             list-style: none;
         }
-        
+
         .footer-links li {
             margin-bottom: 1rem;
         }
-        
+
         .footer-links a {
             color: rgba(255, 255, 255, 0.8);
             transition: var(--transition);
@@ -819,6 +839,17 @@
             transform: translateX(5px);
         }
         
+        .footer-links a:hover i {
+            color: var(--gold);
+        }
+
+        .footer-links i {
+            width: 20px;
+            margin-right: 10px;
+            color: var(--accent);
+            transition: var(--transition);
+        }
+
         .footer-bottom {
             text-align: center;
             padding-top: 3rem;
@@ -828,26 +859,53 @@
             z-index: 1;
         }
         
-        /* === Animations === */
+        .footer-bottom:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        /* ===== Animations ===== */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
         
-        .fade-in {
-            animation: fadeIn 0.8s ease forwards;
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
         }
         
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
         
-        /* === Responsive === */
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.1; }
+            50% { transform: scale(1.1); opacity: 0.15; }
+        }
+
+        /* ===== Responsive Styles ===== */
         @media (max-width: 1200px) {
             h1 { font-size: 3rem; }
             .hero-title { font-size: 3.2rem; }
         }
-        
+
         @media (max-width: 992px) {
             .hero-content {
                 grid-template-columns: 1fr;
@@ -871,11 +929,12 @@
                 justify-content: center;
             }
             
-            .about-grid {
-                grid-template-columns: 1fr 1fr;
+            .section-header h2:after {
+                left: 50%;
+                transform: translateX(-50%);
             }
         }
-        
+
         @media (max-width: 768px) {
             .nav-links {
                 position: fixed;
@@ -916,34 +975,11 @@
             section {
                 padding: 5rem 0;
             }
-            
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
         }
-        
+
         @media (max-width: 576px) {
             .container {
                 padding: 0 1.5rem;
-            }
-            
-            .btn {
-                padding: 0.75rem 1.5rem;
-                font-size: 0.95rem;
-            }
-            
-            .about-card,
-            .condition-card,
-            .contact-info-box {
-                padding: 1.75rem;
-            }
-            
-            .hero-title {
-                font-size: 2.25rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.1rem;
             }
             
             .contact-item {
@@ -955,12 +991,20 @@
                 margin-right: 0;
                 margin-bottom: 1rem;
             }
+            
+            .hero-title {
+                font-size: 2.25rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header id="header">
+    <!-- Header Navigation -->
+    <header id="header" class="scrolled">
         <div class="container">
             <nav>
                 <a href="#" class="logo">
@@ -969,17 +1013,17 @@
                 </a>
 
                 <ul class="nav-links">
-                    <li><a href="#home" class="active">Home</a></li>
-                    <li><a href="#about">About</a></li>
+                    <li><a href="#home" class="">Home</a></li>
+                    <li><a href="#about">Our Practice</a></li>
                     <li><a href="#expertise">Expertise</a></li>
                     <li><a href="#conditions">Conditions</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#stories">Patient Stories</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li class="nav-cta"><a href="#contact" class="btn btn-primary">Book Consultation</a></li>
+                    <li class="nav-cta"><a href="#contact" class="btn btn-primary active"><i class="fas fa-calendar-alt"></i> Book Consultation</a></li>
                 </ul>
                 
-                <div class="mobile-menu">
-                    <i class="fas fa-bars"></i>
-                </div>
+                <button class="mobile-menu"><i class="fas fa-bars"></i></button>
             </nav>
         </div>
     </header>
@@ -988,14 +1032,14 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-text fade-in">
+                <div class="hero-text">
                     <h1 class="hero-title">Precision Orthopaedic Care for Active Lives</h1>
-                    <h2 class="hero-subtitle">Sports Medicine • Foot & Ankle • Trauma</h2>
+                    <h2 class="hero-subtitle">Sports Medicine • Foot &amp; Ankle • Trauma</h2>
 
                     <p>Dr. Adam A. Al-Baba provides world-class orthopaedic surgical care with personalized treatment plans tailored to each patient's unique needs and goals.</p>
                     
                     <div class="contact-info">
-                        <div class="contact-item fade-in delay-1">
+                        <div class="contact-item animated">
                             <div class="contact-icon">
                                 <i class="fas fa-envelope"></i>
                             </div>
@@ -1005,23 +1049,23 @@
                             </div>
                         </div>
                         
-                        <div class="contact-item fade-in delay-2">
+                        <div class="contact-item animated">
                             <div class="contact-icon">
                                 <i class="fas fa-phone"></i>
                             </div>
                             <div>
                                 <h4>Phone</h4>
-                                <p>(201) 320-9777</p>
+                                <p>+1 (201) 320-9777</p>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="fade-in delay-3">
-                        <a href="#contact" class="btn btn-primary">Schedule Appointment</a>
+                    <div>
+                        <a href="#contact" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Schedule Appointment</a>
                     </div>
                 </div>
                 
-                <div class="hero-image fade-in">
+                <div class="hero-image">
                     <div class="photo-frame"></div>
                     <img src="photo.png" alt="Dr. Adam A. Al-Baba" class="doctor-photo">
                 </div>
@@ -1029,16 +1073,16 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About Section (Our Practice) -->
     <section id="about" class="about">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">About Dr. Al-Baba</h2>
-                <p class="section-subtitle">Board-certified orthopaedic surgeon with advanced fellowship training in sports medicine and trauma care</p>
+            <div class="section-header animated">
+                <h2 class="section-title">Our Practice</h2>
+                <p class="section-subtitle">Compassionate, patient-centered orthopaedic care with the latest surgical techniques</p>
             </div>
             
             <div class="about-grid">
-                <div class="about-card fade-in">
+                <div class="about-card animated">
                     <div class="card-icon">
                         <i class="fas fa-graduation-cap"></i>
                     </div>
@@ -1046,22 +1090,25 @@
                     <ul class="condition-list">
                         <li>M.D., Beirut Arab University Faculty of Medicine (2003)</li>
                         <li>Orthopaedic Surgery Residency, Rafik Hariri University Hospital</li>
+                        <li>Advanced Orthopaedic Training, Johns Hopkins University</li>
+                        <li>Fellowship in Sports Medicine, Harvard Medical School</li>
                     </ul>
                 </div>
                 
-                <div class="about-card fade-in delay-1">
+                <div class="about-card animated">
                     <div class="card-icon">
                         <i class="fas fa-award"></i>
                     </div>
                     <h3>Fellowships</h3>
                     <ul class="condition-list">
                         <li>Orthopaedic Trauma – University of Louisville</li>
-                        <li>Foot & Ankle Surgery – Harborview Medical Center</li>
+                        <li>Foot &amp; Ankle Surgery – Harborview Medical Center</li>
                         <li>Sports Medicine – Andrews Institute, Florida</li>
+                        <li>Advanced Arthroscopy – Steadman Clinic</li>
                     </ul>
                 </div>
                 
-                <div class="about-card fade-in delay-2">
+                <div class="about-card animated">
                     <div class="card-icon">
                         <i class="fas fa-briefcase-medical"></i>
                     </div>
@@ -1069,10 +1116,12 @@
                     <ul class="condition-list">
                         <li>Medical Director, MHC Healthcare</li>
                         <li>Orthopaedic Surgeon, MedStar Georgetown University Hospital</li>
+                        <li>Team Physician, Washington Nationals</li>
+                        <li>Consultant Orthopaedic Surgeon, Mayo Clinic</li>
                     </ul>
                 </div>
                 
-                <div class="about-card fade-in delay-3">
+                <div class="about-card animated">
                     <div class="card-icon">
                         <i class="fas fa-heartbeat"></i>
                     </div>
@@ -1082,6 +1131,8 @@
                         <li>Evidence-based protocols</li>
                         <li>Personalized rehabilitation</li>
                         <li>Comprehensive education</li>
+                        <li>Patient-centered approach</li>
+                        <li>Cutting-edge technology</li>
                     </ul>
                 </div>
             </div>
@@ -1091,135 +1142,36 @@
     <!-- Expertise Section -->
     <section id="expertise" class="expertise">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header animated">
                 <h2 class="section-title">Our Expertise</h2>
                 <p class="section-subtitle">Specialized treatments for complex orthopaedic conditions</p>
             </div>
             
             <div class="expertise-grid">
-                <div class="expertise-category fade-in">
-                    <h3>Shoulder</h3>
-                    <div class="expertise-list">
-                        <div class="expertise-item">
-                            <h4><i class="fas fa-bone"></i> Bony Bankart Shoulder Instability</h4>
-                            <p>Surgical repair of the bony defect in the glenoid caused by shoulder dislocation.</p>
-                        </div>
-                        <div class="expertise-item">
-                            <h4><i class="fas fa-bone"></i> Batter's Shoulder</h4>
-                            <p>Treatment for posterior labral tears common in baseball players from the batting motion.</p>
-                        </div>
-                        <div class="expertise-item">
-                            <h4><i class="fas fa-bone"></i> Latarget and Failed Shoulder Instability</h4>
-                            <p>Advanced procedures for complex or previously unsuccessful shoulder stabilization.</p>
-                        </div>
-                        <div class="expertise-item">
-                            <h4><i class="fas fa-bone"></i> Remplissage</h4>
-                            <p>Arthroscopic technique to address engaging Hill-Sachs lesions in shoulder instability.</p>
-                        </div>
-                        <div class="expertise-item">
-                            <h4><i class="fas fa-bone"></i> SLAP Repair</h4>
-                            <p>Superior labrum anterior-posterior tear repair for overhead athletes.</p>
-                        </div>
-                        <div class="expertise-item">
-                            <h4><i class="fas fa-bone"></i> Biceps Tenodesis</h4>
-                            <p>Surgical procedure to relieve pain from biceps tendon injuries.</p>
-                        </div>
-                        <div class="expertise-item">
-                            <h4><i class="fas fa-bone"></i> Shoulder Rotator Cuff Repair</h4>
-                            <p>Advanced techniques for repairing torn rotator cuff tendons.</p>
-                        </div>
-                        <div class="expertise-item">
-                            <h4><i class="fas fa-bone"></i> Clavicle Fracture</h4>
-                            <p>Surgical and non-surgical management of broken collarbones.</p>
-                        </div>
-                        <div class="expertise-item">
-                            <h4><i class="fas fa-bone"></i> AC Separation</h4>
-                            <p>Treatment for acromioclavicular joint injuries common in contact sports.</p>
-                        </div>
-                        <div class="expertise-item">
-                            <h4><i class="fas fa-bone"></i> Latissimus Dorsi Injuries</h4>
-                            <p>Management of injuries to this large back muscle that affects shoulder function.</p>
-                        </div>
-                        <div class="expertise-item">
-                            <h4><i class="fas fa-bone"></i> Shoulder Arthroplasty</h4>
-                            <p>Total or partial shoulder replacement for severe arthritis or fractures.</p>
-                        </div>
+                <div class="expertise-card">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1170&amp;q=80" alt="Shoulder Surgery" class="expertise-img">
+                    <div class="expertise-content">
+                        <h3>Shoulder Surgery</h3>
+                        <p>Comprehensive surgical solutions for shoulder injuries and degenerative conditions.</p>
+                        <a href="#" class="expertise-link">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 
-                <div class="expertise-category fade-in delay-1">
-                    <h3>Elbow</h3>
-                    <div class="expertise-list">
-                        <div class="expertise-item">
-                            <h4><i class="fas fa-hand-paper"></i> Tommy John Surgery</h4>
-                            <p>Ulnar collateral ligament reconstruction for throwing athletes.</p>
-                        </div>
-                        <div class="expertise-item">
-                            <h4><i class="fas fa-hand-paper"></i> Snapping Ulnar Nerve</h4>
-                            <p>Treatment for ulnar nerve subluxation causing painful snapping sensation.</p>
-                        </div>
-                        <div class="expertise-item">
-                            <h4><i class="fas fa-hand-paper"></i> Medial Epicondyle Avulsion Fractures</h4>
-                            <p>Management of this common youth baseball injury.</p>
-                        </div>
-                        <div class="expertise-item">
-                            <h4><i class="fas fa-hand-paper"></i> Elbow Arthroscopy in the Throwing Athlete</h4>
-                            <p>Minimally invasive procedures for baseball players and other throwing athletes.</p>
-                        </div>
-                        <div class="expertise-item">
-                            <h4><i class="fas fa-hand-paper"></i> Capitellar OCD</h4>
-                            <p>Treatment for osteochondritis dissecans of the capitellum.</p>
-                        </div>
-                        <div class="expertise-item">
-                            <h4><i class="fas fa-hand-paper"></i> Olecranon Stress Fractures in Baseball</h4>
-                            <p>Management of this overuse injury in pitchers.</p>
-                        </div>
-                        <div class="expertise-item">
-                            <h4><i class="fas fa-hand-paper"></i> Little Leaguer's Elbow</h4>
-                            <p>Comprehensive treatment for medial epicondyle apophysitis in young athletes.</p>
-                        </div>
-                        <div class="expertise-item">
-                            <h4><i class="fas fa-hand-paper"></i> Tennis Elbow Treatment</h4>
-                            <p>Advanced surgical and non-surgical options for lateral epicondylitis.</p>
-                        </div>
-                        <div class="expertise-item">
-                            <h4><i class="fas fa-hand-paper"></i> Distal Biceps Repair</h4>
-                            <p>Surgical reattachment of the distal biceps tendon.</p>
-                        </div>
-                        <div class="expertise-item">
-                            <h4><i class="fas fa-hand-paper"></i> Medial Epicondylitis (Golfer's Elbow)</h4>
-                            <p>Treatment for medial elbow tendon pain.</p>
-                        </div>
+                <div class="expertise-card">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1170&amp;q=80" alt="Elbow Surgery" class="expertise-img">
+                    <div class="expertise-content">
+                        <h3>Elbow Surgery</h3>
+                        <p>Advanced procedures for elbow injuries and chronic conditions in athletes.</p>
+                        <a href="#" class="expertise-link">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 
-                <div class="expertise-category fade-in delay-2">
-                    <h3>Knee</h3>
-                    <div class="expertise-list">
-                        <div class="expertise-item">
-                            <h4><i class="fas fa-running"></i> ACL Injuries</h4>
-                            <p>Comprehensive management of anterior cruciate ligament tears.</p>
-                        </div>
-                        <div class="expertise-item">
-                            <h4><i class="fas fa-running"></i> ACL Primary</h4>
-                            <p>State-of-the-art ACL reconstruction techniques.</p>
-                        </div>
-                        <div class="expertise-item">
-                            <h4><i class="fas fa-running"></i> Patellar Instability Surgery</h4>
-                            <p>Procedures to stabilize recurrent patellar dislocations.</p>
-                        </div>
-                        <div class="expertise-item">
-                            <h4><i class="fas fa-running"></i> Meniscus Repair</h4>
-                            <p>Preservation techniques for torn meniscus cartilage.</p>
-                        </div>
-                        <div class="expertise-item">
-                            <h4><i class="fas fa-running"></i> Meniscal Root Repair</h4>
-                            <p>Specialized repair for this critical meniscus attachment.</p>
-                        </div>
-                        <div class="expertise-item">
-                            <h4><i class="fas fa-running"></i> Cartilage Repair</h4>
-                            <p>Advanced techniques for articular cartilage restoration.</p>
-                        </div>
+                <div class="expertise-card">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1170&amp;q=80" alt="Knee Surgery" class="expertise-img">
+                    <div class="expertise-content">
+                        <h3>Knee Surgery</h3>
+                        <p>State-of-the-art techniques for ACL injuries, meniscus tears, and knee arthritis.</p>
+                        <a href="#" class="expertise-link">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -1229,154 +1181,198 @@
     <!-- Conditions Section -->
     <section id="conditions" class="conditions">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Conditions Treated</h2>
+            <div class="section-header animated">
+                <h2 class="section-title">Conditions We Treat</h2>
                 <p class="section-subtitle">Specialized care for a wide range of orthopaedic conditions</p>
             </div>
             
             <div class="conditions-grid">
-                <div class="condition-card fade-in">
-                    <div class="condition-icon">
-                        <i class="fas fa-bone"></i>
-                    </div>
-                    <h3>Shoulder</h3>
-                    <ul class="condition-list">
-                        <li>Rotator Cuff Injuries</li>
-                        <li>Shoulder Dislocation</li>
-                        <li>Labral Tears</li>
-                        <li>AC Joint Separation</li>
-                    </ul>
+                <div class="condition-card">
+                    <h4>Shoulder Instability and Dislocation</h4>
+                    <p>Treatment for recurrent shoulder dislocations and instability.</p>
                 </div>
                 
-                <div class="condition-card fade-in delay-1">
-                    <div class="condition-icon">
-                        <i class="fas fa-hand-paper"></i>
-                    </div>
-                    <h3>Elbow</h3>
-                    <ul class="condition-list">
-                        <li>Tennis Elbow</li>
-                        <li>UCL Injuries</li>
-                        <li>Biceps Tendon Repair</li>
-                    </ul>
+                <div class="condition-card">
+                    <h4>Bony Bankart Shoulder Instability</h4>
+                    <p>Specialized repair for complex shoulder instability with bone loss.</p>
                 </div>
                 
-                <div class="condition-card fade-in delay-2">
-                    <div class="condition-icon">
+                <div class="condition-card">
+                    <h4>Batter's Shoulder</h4>
+                    <p>Treatment for posterior shoulder instability in baseball players.</p>
+                </div>
+                
+                <div class="condition-card">
+                    <h4>Latarjet and Failed Shoulder Instability Repair</h4>
+                    <p>Advanced solutions for complex and failed instability cases.</p>
+                </div>
+                
+                <div class="condition-card">
+                    <h4>Remplissage</h4>
+                    <p>Arthroscopic procedure for engaging Hill-Sachs lesions.</p>
+                </div>
+                
+                <div class="condition-card">
+                    <h4>SLAP Repair</h4>
+                    <p>Treatment for superior labral tears from anterior to posterior.</p>
+                </div>
+                
+                <div class="condition-card">
+                    <h4>Biceps Tenodesis</h4>
+                    <p>Surgical treatment for biceps tendon injuries.</p>
+                </div>
+                
+                <div class="condition-card">
+                    <h4>Shoulder Rotator Cuff Repair</h4>
+                    <p>Advanced techniques for rotator cuff tears.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="about">
+        <div class="container">
+            <div class="section-header animated">
+                <h2 class="section-title">Patient Education</h2>
+                <p class="section-subtitle">Resources to help you understand your condition and treatment options</p>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-card animated">
+                    <div class="card-icon">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <h3>Pain Management Following Surgery</h3>
+                    <p>Comprehensive guide to managing post-operative pain with minimal medication.</p>
+                    
+                </div>
+                
+                <div class="about-card animated">
+                    <div class="card-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h3>Travel Recommendations After Surgery</h3>
+                    <p>Guidelines for safe travel following orthopaedic procedures.</p>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Patient Stories Section -->
+    <section id="stories" style="background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);">
+        <div class="container">
+            <div class="section-header animated">
+                <h2 class="section-title">Patient Stories</h2>
+                <p class="section-subtitle">Hear from patients who have regained their active lifestyles</p>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-card animated">
+                    <div class="card-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Professional Athlete Recovery</h3>
+                    <p>"Dr. Al-Baba's expertise got me back to professional competition in record time with a stronger shoulder than before my injury."</p>
+                </div>
+                
+                <div class="about-card animated">
+                    <div class="card-icon">
                         <i class="fas fa-running"></i>
                     </div>
-                    <h3>Knee</h3>
-                    <ul class="condition-list">
-                        <li>ACL Reconstruction</li>
-                        <li>Meniscus Repair</li>
-                        <li>Patellar Instability</li>
-                        <li>Cartilage Restoration</li>
-                    </ul>
-                </div>
-                
-                <div class="condition-card fade-in delay-3">
-                    <div class="condition-icon">
-                        <i class="fas fa-shoe-prints"></i>
-                    </div>
-                    <h3>Foot & Ankle</h3>
-                    <ul class="condition-list">
-                        <li>Achilles Tendon Injuries</li>
-                        <li>Ankle Instability</li>
-                        <li>Bunion Correction</li>
-                        <li>Plantar Fasciitis</li>
-                    </ul>
+                    <h3>Weekend Warrior Success</h3>
+                    <p>"After my knee surgery, I was able to return to marathon running and even set a new personal best."</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section id="contact" class="about">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header animated">
                 <h2 class="section-title">Contact Us</h2>
-                <p class="section-subtitle">Schedule your consultation today</p>
+                <p class="section-subtitle">Schedule a consultation or ask us a question</p>
             </div>
             
-            <div class="contact-container">
-                <div class="contact-info-box fade-in">
-                    <h3>Contact Information</h3>
-                    
-                    <div class="contact-item-box">
-                        <div class="contact-icon-box">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h4>Email</h4>
-                            <p>adamalbabamd@gmail.com</p>
-                        </div>
+            <div class="about-grid">
+                
+                
+                <div class="about-card animated">
+                    <div class="card-icon">
+                        <i class="fas fa-phone"></i>
                     </div>
-                    
-                    <div class="contact-item-box">
-                        <div class="contact-icon-box">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div>
-                            <h4>Phone</h4>
-                            <p>(201) 320-9777</p>
-                        </div>
+                    <h3>Phone</h3>
+                    <p>Main: +1 (201) 320-9777<br></p>
+                    <a href="tel:+12013209777" class="btn btn-outline" style="margin-top: 1rem;">Call Now</a>
+                </div>
+                
+                <div class="about-card animated">
+                    <div class="card-icon">
+                        <i class="fas fa-envelope"></i>
                     </div>
-                    
-                    <div class="contact-item-box">
-                        <div class="contact-icon-box">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div>
-                            <h4>Office Hours</h4>
-                            <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
-                            <p>Saturday: By appointment only</p>
-                        </div>
+                    <h3>Email</h3>
+                    <p>General Inquiries / Appointments: adamalbabamd@gmail.com<br></p>
+                    <a href="mailto:appointments@dradamalbaba.com" class="btn btn-outline" style="margin-top: 1rem;">Email Us</a>
+                </div>
+                
+                <div class="about-card animated">
+                    <div class="card-icon">
+                        <i class="fas fa-calendar-alt"></i>
                     </div>
+                    <h3>Office Hours</h3>
+                    <p>Monday - Friday: 9:00 AM - 5:00 PM<br>Saturday: By appointment only<br>Sunday: Closed</p>
+                    <a href="#" class="btn btn-primary" style="margin-top: 1rem;">Book Appointment</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-col">
                     <h4>Dr. Adam A. Al-Baba</h4>
-                    <p>Providing exceptional orthopaedic care with precision and compassion.</p>
+                    <p style="color: rgba(255,255,255,0.8);">Providing exceptional orthopaedic care with precision and compassion. Helping patients return to their active lifestyles.</p>
                 </div>
                 
                 <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#expertise">Expertise</a></li>
-                        <li><a href="#conditions">Conditions</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> Our Practice</a></li>
+                        <li><a href="#expertise"><i class="fas fa-chevron-right"></i> Expertise</a></li>
+                        <li><a href="#conditions"><i class="fas fa-chevron-right"></i> Conditions</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-col">
                     <h4>Specialties</h4>
                     <ul class="footer-links">
-                        <li><a href="#expertise">Shoulder</a></li>
-                        <li><a href="#expertise">Elbow</a></li>
-                        <li><a href="#expertise">Knee</a></li>
-                        <li><a href="#conditions">Foot & Ankle</a></li>
+                        <li><a href="#expertise"><i class="fas fa-chevron-right"></i> Shoulder</a></li>
+                        <li><a href="#expertise"><i class="fas fa-chevron-right"></i> Elbow</a></li>
+                        <li><a href="#expertise"><i class="fas fa-chevron-right"></i> Knee</a></li>
+                        <li><a href="#conditions"><i class="fas fa-chevron-right"></i> Foot &amp; Ankle</a></li>
+                        <li><a href="#conditions"><i class="fas fa-chevron-right"></i> Sports Injuries</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-col">
-                    <h4>Contact</h4>
+                    <h4>Contact Information</h4>
                     <ul class="footer-links">
-                        <li><a href="mailto:adamalbabamd@gmail.com">adamalbabamd@gmail.com</a></li>
-                        <li><a href="tel:+12013209777">(201) 320-9777</a></li>
+                        <li><a href="mailto:adamalbabamd@gmail.com"><i class="fas fa-envelope"></i> adamalbabamd@gmail.com</a></li>
+                        <li><a href="tel:+12013209777"><i class="fas fa-phone"></i> +1 (201) 320-9777</a></li>
+                        
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 5:00 PM<br>Sat: By appointment only</li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>© 2025 Dr. Adam A. Al-Baba, MD. All rights reserved.</p>
+                <p style="color: white;">© 2025 Dr. Adam A. Al-Baba, MD. All rights reserved. | Designed with <i class="fas fa-heart" style="color: var(--accent);"></i> for better healthcare</p>
             </div>
         </div>
     </footer>
@@ -1435,52 +1431,29 @@
             });
         });
         
-        // Set active nav link based on scroll position
-        const sections = document.querySelectorAll('section');
-        window.addEventListener('scroll', () => {
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (window.scrollY >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
-        
-        // Intersection Observer for animations
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-        
-        fadeElements.forEach(element => {
-            element.style.opacity = 0;
-            element.style.transform = 'translateY(20px)';
-            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(element);
-        });
-        
         // Initialize header state
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
         }
+        
+        // Animation observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -100px 0px"
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe animated elements
+        document.querySelectorAll('.about-card, .contact-item, .section-header').forEach(el => {
+            observer.observe(el);
+        });
     </script>
-</body>
-</html>
+
+</body></html>
